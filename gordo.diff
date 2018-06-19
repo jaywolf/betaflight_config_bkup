@@ -1,3 +1,5 @@
+
+# version
 # Betaflight / OMNIBUSF4SD (OBSD) 3.3.1 Apr  3 2018 / 09:55:08 (4b7eaf79d) MSP API: 1.37
 
 # reset configuration to default settings
@@ -91,14 +93,14 @@ set dterm_lowpass_type = PT1
 set anti_gravity_gain = 1500
 set setpoint_relax_ratio = 56
 set dterm_setpoint_weight = 25
-set p_pitch = 52
-set i_pitch = 48
+set p_pitch = 54
+set i_pitch = 52
 set d_pitch = 34
-set p_roll = 62
-set i_roll = 56
-set d_roll = 34
-set p_yaw = 90
-set i_yaw = 70
+set p_roll = 64
+set i_roll = 60
+set d_roll = 36
+set p_yaw = 96
+set i_yaw = 76
 set d_yaw = 30
 
 # profile
