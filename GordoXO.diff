@@ -1,0 +1,228 @@
+# Betaflight / CLRACINGF4 (CLR4) 3.5.7 Mar 15 2019 / 21:38:44 (e9130527c) MSP API: 1.40
+
+board_name CLRACINGF4
+manufacturer_id 
+mcu_id 004e00304848500720393743
+signature 
+
+# reset configuration to default settings
+defaults nosave
+
+# name
+name Gordo XO
+
+# resources
+
+# mixer
+
+# servo
+
+# servo mix
+
+
+# feature
+feature TELEMETRY
+
+# beeper
+
+# beacon
+beacon RX_LOST
+beacon RX_SET
+
+# map
+
+# serial
+serial 3 64 115200 57600 0 115200
+
+# led
+
+# color
+
+# mode_color
+
+# aux
+aux 0 0 0 1900 2100 0 0
+aux 1 1 1 900 1125 0 0
+aux 2 13 2 1900 2100 0 0
+aux 3 19 2 1400 1600 0 0
+aux 4 28 1 1850 2100 0 0
+aux 5 35 4 1875 2100 0 0
+
+# adjrange
+adjrange 0 0 5 900 1225 12 5 0 0
+adjrange 1 1 5 1400 1625 12 5 0 0
+adjrange 2 2 5 1850 2100 12 5 0 0
+
+# rxrange
+
+# vtx
+
+# rxfail
+rxfail 4 s 750
+rxfail 5 s 1000
+rxfail 6 s 1200
+
+# master
+set gyro_lowpass_type = BIQUAD
+set gyro_lowpass2_hz = 0
+set dyn_notch_quality = 15
+set dyn_notch_width_percent = 30
+set acc_calibration = -16,-36,-2
+set rssi_channel = 8
+set rc_smoothing_type = FILTER
+set fpv_mix_degrees = 24
+set serialrx_provider = CRSF
+set motor_pwm_protocol = DSHOT600
+set bat_capacity = 1500
+set vbat_max_cell_voltage = 50
+set ibata_scale = 131
+set small_angle = 180
+set pid_process_denom = 1
+set runaway_takeoff_prevention = OFF
+set osd_warn_batt_not_full = OFF
+set osd_warn_core_temp = OFF
+set osd_rssi_alarm = 2
+set osd_cap_alarm = 1500
+set osd_tim2 = 1025
+set osd_vbat_pos = 2505
+set osd_rssi_pos = 2092
+set osd_tim_2_pos = 2519
+set osd_flymode_pos = 2489
+set osd_throttle_pos = 2465
+set osd_current_pos = 2496
+set osd_mah_drawn_pos = 2512
+set osd_craft_name_pos = 2057
+set osd_warnings_pos = 2409
+set osd_stat_tim_1 = ON
+set osd_stat_max_spd = OFF
+set osd_stat_endbatt = ON
+set osd_stat_battery = ON
+set osd_stat_min_rssi = OFF
+set osd_stat_bbox = OFF
+set osd_stat_bb_no = OFF
+set vcd_video_system = PAL
+
+# profile
+profile 0
+
+set dterm_lowpass_hz = 105
+set dterm_lowpass2_hz = 150
+set dterm_notch_cutoff = 0
+set anti_gravity_gain = 6400
+set feedforward_transition = 56
+set iterm_relax = RP
+set iterm_relax_type = SETPOINT
+set iterm_relax_cutoff = 12
+set throttle_boost = 2
+set p_pitch = 54
+set i_pitch = 86
+set d_pitch = 28
+set f_pitch = 80
+set p_roll = 54
+set i_roll = 86
+set d_roll = 28
+set f_roll = 80
+set p_yaw = 44
+set i_yaw = 74
+set d_yaw = 2
+set f_yaw = 105
+
+# profile
+profile 1
+
+set dterm_notch_cutoff = 0
+set anti_gravity_gain = 6800
+set feedforward_transition = 56
+set iterm_relax = RP
+set iterm_relax_type = SETPOINT
+set throttle_boost = 8
+set p_pitch = 54
+set i_pitch = 88
+set d_pitch = 28
+set f_pitch = 70
+set p_roll = 54
+set i_roll = 98
+set d_roll = 28
+set f_roll = 70
+set p_yaw = 52
+set i_yaw = 126
+set d_yaw = 10
+set f_yaw = 86
+
+# profile
+profile 2
+
+set dterm_lowpass_type = BIQUAD
+set dterm_notch_cutoff = 0
+set anti_gravity_gain = 7200
+set feedforward_transition = 56
+set yaw_lowpass_hz = 100
+set throttle_boost = 4
+set p_pitch = 70
+set i_pitch = 98
+set d_pitch = 36
+set f_pitch = 50
+set p_roll = 64
+set i_roll = 96
+set d_roll = 34
+set f_roll = 50
+set p_yaw = 42
+set i_yaw = 100
+set d_yaw = 8
+set f_yaw = 80
+
+# restore original profile selection
+profile 2
+
+# rateprofile
+rateprofile 0
+
+set roll_rc_rate = 66
+set pitch_rc_rate = 66
+set yaw_rc_rate = 66
+set roll_srate = 89
+set pitch_srate = 89
+set yaw_srate = 89
+set tpa_rate = 15
+set tpa_breakpoint = 1050
+
+# rateprofile
+rateprofile 1
+
+set roll_rc_rate = 64
+set pitch_rc_rate = 64
+set yaw_rc_rate = 64
+set roll_srate = 86
+set pitch_srate = 86
+set yaw_srate = 86
+
+# rateprofile
+rateprofile 2
+
+set roll_rc_rate = 60
+set pitch_rc_rate = 60
+set yaw_rc_rate = 60
+set roll_srate = 78
+set pitch_srate = 78
+set yaw_srate = 78
+
+# rateprofile
+rateprofile 3
+
+
+# rateprofile
+rateprofile 4
+
+
+# rateprofile
+rateprofile 5
+
+set roll_rc_rate = 64
+set pitch_rc_rate = 64
+set yaw_rc_rate = 64
+set roll_srate = 90
+set pitch_srate = 90
+set yaw_srate = 90
+
+# restore original rateprofile selection
+rateprofile 2
