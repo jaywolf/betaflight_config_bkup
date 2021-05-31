@@ -1,29 +1,25 @@
-# Betaflight / STM32F405 (S405) 4.1.0 Oct 16 2019 / 11:57:16 (c37a7c91a) MSP API: 1.42
-# manufacturer_id: CLRA   board_name: CLRACINGF4   custom defaults: YES
+# version
+# Betaflight / STM32F7X2 (S7X2) 4.2.5 Nov 22 2020 / 18:39:53 (afdac08b3) MSP API: 1.43
+# config: manufacturer_id: TMTR, board_name: TMOTORF7, version: e02dd6f2, date: 2020-11-04T11:31:26Z
 
 # start the command batch
 batch start
 
-board_name CLRACINGF4
-manufacturer_id CLRA
+# reset configuration to default settings
+defaults nosave
+
+board_name TMOTORF7
+manufacturer_id TMTR
+mcu_id 00380018465350182030364e
+signature 
 
 # name: Marmotte
 
-# timer
-timer B00 AF2
-# pin B00: TIM3 CH3 (AF2)
-timer B01 AF2
-# pin B01: TIM3 CH4 (AF2)
-timer B04 NONE
-timer B08 NONE
-
-# dma
-dma pin B00 0
-# pin B00: DMA1 Stream 7 Channel 5
-dma pin B01 0
-# pin B01: DMA1 Stream 2 Channel 5
-dma pin B04 NONE
-dma pin B08 NONE
+# resources
+resource MOTOR 1 B01
+resource MOTOR 2 B00
+resource MOTOR 3 C07
+resource MOTOR 4 C06
 
 # feature
 feature -RX_PARALLEL_PWM
@@ -36,54 +32,50 @@ beacon RX_LOST
 beacon RX_SET
 
 # serial
+serial 2 1 115200 57600 0 115200
 serial 3 64 115200 57600 0 115200
 
 # aux
-aux 0 0 0 1900 2100 0 0
-aux 1 1 1 900 1125 0 0
-aux 2 13 2 1900 2100 0 0
-aux 3 19 2 1400 1600 0 0
-aux 4 28 1 1850 2100 0 0
-aux 5 35 4 1875 2100 0 0
+aux 0 0 0 1850 2100 0 0
+aux 1 1 1 900 1200 0 0
+aux 2 13 2 900 1175 0 0
+aux 3 28 1 1825 2100 0 0
+aux 4 35 4 1800 2100 0 0
 
 # rxfail
-rxfail 4 s 2000
-rxfail 6 s 2000
+rxfail 4 s 900
 
 # master
-set gyro_sync_denom = 2
-set dyn_notch_width_percent = 0
-set dyn_notch_q = 250
-set dyn_notch_min_hz = 90
-set acc_calibration = 126,23,337
+set gyro_lowpass2_hz = 213
+set dyn_lpf_gyro_min_hz = 170
+set dyn_lpf_gyro_max_hz = 425
+set acc_calibration = 51,-48,-60,1
 set mag_hardware = NONE
 set baro_hardware = NONE
 set rssi_channel = 8
-set rc_smoothing_derivative_hz = 20
-set rc_smoothing_derivative_type = PT1
-set fpv_mix_degrees = 25
+set rc_smoothing_auto_smoothness = 20
+set fpv_mix_degrees = 23
 set serialrx_provider = CRSF
+set min_throttle = 1070
 set dshot_bidir = ON
-set dshot_bitbang = OFF
-set motor_pwm_protocol = DSHOT300
-set bat_capacity = 1500
-set vbat_max_cell_voltage = 460
-set ibata_scale = 131
-set beeper_frequency = 0
+set use_unsynced_pwm = OFF
+set motor_pwm_protocol = DSHOT600
+set motor_pwm_rate = 480
+set ibata_scale = 200
 set small_angle = 180
 set osd_warn_no_gps_rescue = OFF
 set osd_warn_gps_rescue_disabled = OFF
 set osd_rssi_alarm = 0
 set osd_cap_alarm = 1200
 set osd_vbat_pos = 2505
-set osd_rssi_pos = 2093
+set osd_rssi_pos = 2063
 set osd_rssi_dbm_pos = 40
 set osd_tim_2_pos = 2519
 set osd_flymode_pos = 2489
 set osd_throttle_pos = 2465
 set osd_current_pos = 2496
 set osd_mah_drawn_pos = 2512
-set osd_craft_name_pos = 2059
+set osd_craft_name_pos = 2058
 set osd_stat_max_spd = OFF
 set osd_stat_endbatt = ON
 set osd_stat_battery = ON
@@ -91,28 +83,43 @@ set osd_stat_min_rssi = OFF
 set osd_stat_bbox = OFF
 set osd_stat_bb_no = OFF
 set osd_stat_total_time = ON
-set scheduler_optimize_rate = ON
-set vcd_video_system = PAL
+set gyro_rpm_notch_q = 800
 set name = Marmotte
 
 profile 0
 
 # profile 0
-set anti_gravity_gain = 7200
-set feedforward_transition = 56
-set p_pitch = 55
-set i_pitch = 108
-set d_pitch = 26
-set f_pitch = 60
-set p_roll = 50
-set i_roll = 102
-set d_roll = 24
-set f_roll = 60
-set p_yaw = 36
-set i_yaw = 108
-set f_yaw = 80
+set dyn_lpf_dterm_min_hz = 60
+set dyn_lpf_dterm_max_hz = 145
+set dyn_lpf_dterm_curve_expo = 7
+set dterm_lowpass2_hz = 128
+set anti_gravity_gain = 5600
+set feedforward_transition = 40
+set iterm_relax_cutoff = 10
+set yaw_lowpass_hz = 70
+set throttle_boost_cutoff = 10
+set p_pitch = 56
+set d_pitch = 34
+set f_pitch = 40
+set p_roll = 52
+set i_roll = 90
+set d_roll = 34
+set f_roll = 40
+set p_yaw = 40
+set f_yaw = 40
 set d_min_roll = 0
 set d_min_pitch = 0
+set ff_interpolate_sp = AVERAGED_3
+set ff_spike_limit = 55
+set ff_smooth_factor = 40
+set ff_boost = 0
+
+profile 1
+
+profile 2
+
+# restore original profile selection
+profile 0
 
 rateprofile 0
 
@@ -120,9 +127,19 @@ rateprofile 0
 set roll_rc_rate = 62
 set pitch_rc_rate = 62
 set yaw_rc_rate = 62
-set roll_srate = 78
-set pitch_srate = 78
-set yaw_srate = 78
+set roll_srate = 76
+set pitch_srate = 76
+set yaw_srate = 76
 
-# end the command batch
-batch end
+rateprofile 1
+
+rateprofile 2
+
+rateprofile 3
+
+rateprofile 4
+
+rateprofile 5
+
+# restore original rateprofile selection
+rateprofile 0
